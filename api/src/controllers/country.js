@@ -12,7 +12,7 @@ const infoApi = async() =>{
             return {
               idName: el.cca3,
               name: el.name.common,
-              flag: el.flags[0]?el.flags:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/1200px-Flag_of_Venezuela.svg.png',
+              flag: el.flags.png,
               continent: el.continents[0],
               capital: el.capital ? el.capital[0] : "Capital not found",
               subregion: el.subregion? el.subregion:"subregion not found" ,
@@ -27,8 +27,42 @@ const infoApi = async() =>{
 }
 
 
+const dbInfo = async (name) =>{
+  try{
+    if(!name){ 
+  const paises = await Countrys.findAll({
+    include:[{model: Activitys}]
+  }) 
+return paises
+}
+else{
+  const pais = await dbInfo()
+  console.log(pais)
+    const filterName = await pais.filter(el => el.name.includes(name.charAt(0).toUpperCase() + name.slice(1)));
+    console.log(filterName)
+    return filterName
+}
+     
+  }catch(error){console.log(error)}
+}
 
 
-module.exports = {infoApi};
+const countryId = async(id) =>{
+ const idPaises = await dbInfo()
+ const countryID = idPaises.filter(el => el.id == id);
+ if(!countryID.length) {
+   return 'no se encontro ningun pais'
+ }
+ return countryID
+}
+
+
+
+
+
+
+
+
+module.exports = {infoApi, dbInfo, countryId,};
 
 

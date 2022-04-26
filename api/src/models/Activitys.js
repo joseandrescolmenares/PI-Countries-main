@@ -9,15 +9,13 @@ module.exports = (sequelize) => {
     },
 
     difficulty: {
-      type: DataTypes.INTEGER,
-      validate: {
-        min: 1,
-        max: 5
-      }
+      type: DataTypes.ENUM("1", "2", "3", "4", "5"),
     },
+    
     duration:{
        type: DataTypes.INTEGER,
     },
+
     season: {
       type: DataTypes.ENUM("summer", "fall", "winter", "spring"),    
     },
