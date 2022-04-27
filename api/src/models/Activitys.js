@@ -1,11 +1,10 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("activitys", {
-   
+  sequelize.define("Activitys", {
+
     name: {
       type: DataTypes.STRING,
-      unique: true, // NO PUEDE HABER 2 EP CON EL MISMO NOMBRE
     },
 
     difficulty: {
@@ -13,7 +12,7 @@ module.exports = (sequelize) => {
     },
     
     duration:{
-       type: DataTypes.INTEGER,
+       type: DataTypes.STRING,
     },
 
     season: {

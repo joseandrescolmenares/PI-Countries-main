@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = Router();
 const {dbInfo, countryId,} = require('../controllers/country')
-const {Countrys, Activitys} = require('../db');
+
 
 router.get('/', async(req, res) =>{
     const {name} = req.query;
