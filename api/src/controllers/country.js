@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
 const infoApi = async() =>{
     try{ 
         const bD = await Countrys.findAll()
-        if (bD.length < 1) {
+        if (!bD.length) {
           const carga = await axios.get("https://restcountries.com/v3.1/all")
         
           const Info = await carga.data?.map(el => {
@@ -22,7 +22,7 @@ const infoApi = async() =>{
           })
           const dbSave = await Countrys.bulkCreate(Info)
         return dbSave
-        }
+        }else return bD
     }catch(error){console.log(error)}
 }
 

@@ -1,12 +1,18 @@
-import './App.css';
-import Home from './components/Home';
+import "./App.css";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./components/Landing";
+import Detail from "./components/Detail";
 
 function App() {
   return (
-    <div className="App">
-    <Home/>
-      <h1>Henry Countries</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/home/:id" element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
