@@ -16,7 +16,25 @@ export default function Home() {
   return (
     <div>
         <Search/>
-      <div>
+ <div>
+   <div>
+     <select>
+     <option value="Africa">Africa</option>
+     <option value="Europa">Europa</option>
+     <option value="Oceania">Oceania</option>
+     <option value="Asia">Asia</option>
+     <option value="North America">North America</option>
+     <option value="South America">South Americ</option>
+     </select>
+   </div>
+   <div>
+     <select >
+      <option value="orPo">ascendente Poblacion</option>
+      <option value="dePo">descendente poblacion</option>
+      <option value="asc">A-Z</option>
+      <option value="des">Z-A</option>
+     </select>
+   </div>
         {Allcountrys &&
           Allcountrys.map((el) => {
             return (
