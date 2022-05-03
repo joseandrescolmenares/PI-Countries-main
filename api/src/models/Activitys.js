@@ -5,6 +5,12 @@ module.exports = (sequelize) => {
 
     name: {
       type: DataTypes.STRING,
+      
+    },
+
+    Namedi:{
+      type: DataTypes.STRING,
+      allowNull: false,
     },
 
     difficulty: {

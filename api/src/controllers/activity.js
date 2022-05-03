@@ -1,27 +1,23 @@
-const {Countrys, Activitys} = require('../db');
+const { Countrys, Activitys } = require("../db");
 
-const PostActivity = async(name, difficulty, duration, season, countrys) => {
-    const activitis =  await Activitys.create({name, difficulty, duration, season})
-    try{
-        countrys.map(async (country) =>{
-            let search = await Countrys.findAll({where: {id: country}})
-            if(search){
-                activitis.addCountry(country)
-            }
-            
-        })
-       return activitis
-    }catch(error){console.log(error)}
-}
+const PostActivity = async (name, difficulty, duration, season, countrys,namedi) => {
+  const activitis = await Activitys.create({
+    name,
+    difficulty,
+    duration,
+    season,
+    namedi,
+  });
+  try {
+    countrys.map(async (country) => {
+      let search = await Countrys.findAll({ where: { id: country } });
 
-// const getAllActivities = async()=>{
-//     const db = await Activitys.findAll({
-//         attributes: ['name'],
-//         include: Countrys
-//     })
-//     return db
+      activitis.addCountry(search);
+    });
+    return activitis;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-
-module.exports = {PostActivity}
-
-
+module.exports = { PostActivity };

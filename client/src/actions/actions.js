@@ -8,11 +8,13 @@ export function getData() {
       return dispatch({
         type: "GET_INFO",
         payload: result.data,
-      });
+      })
+     
     } catch (error) {
       console.log(error);
     }
   };
+  
 }
 
 export function getName(name) {
@@ -43,3 +45,24 @@ export function getId(id) {
     }
   };
 }
+
+
+export function filterCont(payload){
+  return{
+    type: 'FILTER_CONT',
+    payload: payload
+  }
+
+}
+
+
+export function filter(payload){
+    console.log(payload)
+    return{
+        type: 'FILTER',
+        payload: payload
+    }
+}
+
+
+
