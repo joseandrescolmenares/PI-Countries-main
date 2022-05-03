@@ -1,0 +1,24 @@
+.background{
+background-image: url('../img/wallpaper-iPad-tierra-Windows-Mac.jpg');
+background-position:center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+min-height: 100%;
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.centrar{
+      margin-top: 50px;
+    text-align: center;
+     display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns:repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    grid: center;
+}

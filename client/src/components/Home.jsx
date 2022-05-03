@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData, filterCont, filter} from "../actions/actions";
+import { getData, filterCont, filter } from "../actions/actions";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import style from "./css/Home.module.css"
 
 export default function Home() {
   const [orden, setOrden] = useState("");
@@ -15,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getData());
-  }, [dispatch,]);
+  }, [dispatch]);
 
   const handleOnchange = (e) => {
     dispatch(filterCont(e.target.value));
@@ -26,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className={style.background}>
       <Search />
       <div>
         <div>
@@ -48,7 +49,8 @@ export default function Home() {
             <option value="des">A-Z</option>
           </select>
         </div>
-        { Allcountrys &&
+        <div className={style.centrar}> 
+        {Allcountrys &&
           Allcountrys.map((el) => {
             return (
               <Link to={`/home/${el.id}`}>
@@ -61,6 +63,7 @@ export default function Home() {
               </Link>
             );
           })}
+          </div>
       </div>
     </div>
   );

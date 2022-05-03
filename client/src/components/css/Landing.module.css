@@ -1,0 +1,20 @@
+.background{
+ background-image: url('../img/sl_112119_25250_20.jpg');
+background-position: center ;
+background-repeat: no-repeat;
+background-size:cover;
+position: fixed;
+    top: 0;
+    left: 0;
+min-width: 100%;
+min-height: 100vh;
+}
+
+.conten{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    
+}

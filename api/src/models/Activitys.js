@@ -3,19 +3,15 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define("Activitys", {
 
+    
     name: {
       type: DataTypes.STRING,
-      
-    },
-
-    Namedi:{
-      type: DataTypes.STRING,
-      allowNull: false,
     },
 
     difficulty: {
-      type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+      type: DataTypes.STRING,
     },
+   
     
     duration:{
        type: DataTypes.STRING,

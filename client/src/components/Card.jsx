@@ -1,4 +1,5 @@
 import  React  from "react";
+// import style from './css/Card.module.css'
 
 const Card = ({name, flag, continent}) =>{
  return (
