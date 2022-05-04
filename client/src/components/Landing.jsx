@@ -6,9 +6,9 @@ const Landing = () => {
   return (
     <div className={style.background}>
       <div className={style.conten}>
-        <h1> comenzo el juego</h1>
+        <h1 className={style.titulo}>BIENVENIDOS A MI APP</h1>
         <Link to="home">
-          <button>comenzar</button>
+          <button className={style.comenzar}>comenzar</button>
         </Link>
       </div>
     </div>

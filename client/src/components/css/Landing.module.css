@@ -1,5 +1,5 @@
 .background{
- background-image: url('../img/sl_112119_25250_20.jpg');
+ background-image: url('../img/estaaaaaa\ davisd.jpeg');
 background-position: center ;
 background-repeat: no-repeat;
 background-size:cover;
@@ -15,6 +15,66 @@ min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 120px;
     height: auto;
     
 }
+
+.titulo{
+    color: rgb(255, 255, 255);
+}
+
+/* .comenzar{
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+   }
+   
+   .comenzar:hover {
+    letter-spacing: 3px;
+    background-color: rgb(254 17 71);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+   }
+   
+   .comenzar:active {
+    letter-spacing: 3px;
+    background-color: rgb(254 17 71);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+   } */
+
+   .comenzar {
+    padding: 1rem 2rem;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+    color: blueviolet;
+    border-radius: .5rem;
+    border-bottom: 2px solid blueviolet;
+    border-right: 2px solid blueviolet;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 1s;
+    transition-property: border-top, 
+       border-left, 
+       border-bottom,
+       border-right,
+       box-shadow;
+   }
+   
+   .comenzar:hover {
+    border-top: 2px solid blueviolet;
+    border-left: 2px solid blueviolet;
+    border-bottom: 2px solid rgb(238, 103, 238);
+    border-right: 2px solid rgb(238, 103, 238);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+   }
