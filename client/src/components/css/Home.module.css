@@ -1,5 +1,5 @@
 .background{
-background-image: url('../img/wallpaper-iPad-tierra-Windows-Mac.jpg');
+background-image: url('../img/ultimo.jpg');
 background-position:center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -12,12 +12,41 @@ left: 0;
 }
 
 .centrar{
-      margin-top: 50px;
+  
+ position: relative;
+ bottom: 500px;
      display: grid;
     justify-content: end;
     align-items: center;
     grid-template-columns: 350px 350px 350px;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 200px 200px 200px;
     gap: 20px;
 
 }
+.mundo{
+  position: relative;
+  left:30px;
+  top: 100px;
+  height: 700px;
+  width:700px;
+  border-radius: 100%;
+  animation: rotation 9s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.nav{
+  height:80px;
+  background-color: aliceblue;
+display: flex;
+justify-content:space-around;
+align-items: center;
+}
+
