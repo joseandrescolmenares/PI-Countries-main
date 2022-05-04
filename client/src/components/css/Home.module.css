@@ -13,12 +13,11 @@ left: 0;
 
 .centrar{
       margin-top: 50px;
-    text-align: center;
      display: grid;
-    justify-items: center;
+    justify-content: end;
     align-items: center;
-    grid-template-columns:repeat(3, 1fr) ;
+    grid-template-columns: 350px 350px 350px;
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
-    grid: center;
+
 }

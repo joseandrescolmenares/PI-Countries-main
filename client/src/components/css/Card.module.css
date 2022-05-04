@@ -1,0 +1,12 @@
+.card{
+    display: flex;
+   width: 100px;
+   height:230px;
+   margin: 20px;
+   
+}
+
+.flag{
+    width: 100px;
+    height: 100px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData, filterCont, filter } from "../actions/actions";
+import { getData, filterCont, filter, activity } from "../actions/actions";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import Search from "./Search";
@@ -26,6 +26,10 @@ export default function Home() {
     setOrden(e.target.value);
   };
 
+  const handleActivity = (e) => {
+    dispatch(activity(e.target.value))
+  }
+
   return (
     <div className={style.background}>
       <Search />
@@ -47,6 +51,16 @@ export default function Home() {
             <option value="ascPO">Descendent Population</option>
             <option value="asc">Z-A</option>
             <option value="des">A-Z</option>
+          </select>
+        </div>
+        <div>
+          <select onChange={(e) => handleActivity(e)}>
+              <option value="All">All</option>
+              <option value="Horse Ride">Horse Ride</option>
+              <option value="Bungee jumping">Bungee jumping</option>
+              <option value="Visit Tourist places">Visit Tourist place</option>
+              <option value="ski">ski</option>
+              <option value="Hot Air Ballon Ride">Hot Air Ballon Ride</option>
           </select>
         </div>
         <div className={style.centrar}> 

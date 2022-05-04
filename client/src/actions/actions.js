@@ -57,11 +57,18 @@ export function filterCont(payload){
 
 
 export function filter(payload){
-    console.log(payload)
     return{
         type: 'FILTER',
         payload: payload
     }
+}
+
+export function activity(payload){
+  console.log(payload)
+  return{
+    type: 'ACTIVITY',
+    payload: payload
+  }
 }
 
 
