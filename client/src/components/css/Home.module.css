@@ -14,18 +14,19 @@ left: 0;
 .centrar{
   
  position: relative;
- bottom: 500px;
-     display: grid;
-    justify-content: end;
-    align-items: center;
-    grid-template-columns: 350px 350px 350px;
-    grid-template-rows: 200px 200px 200px;
-    gap: 20px;
+ bottom: 600px;
+ right: 50px;
+ display: grid;
+justify-content: end;
+ align-items: center;
+ grid-template-columns: 350px 350px 350px;
+grid-template-rows: 200px 200px 200px;
+ gap: 50px;
 
 }
 .mundo{
   position: relative;
-  left:30px;
+  left:20px;
   top: 100px;
   height: 700px;
   width:700px;
@@ -50,3 +51,7 @@ justify-content:space-around;
 align-items: center;
 }
 
+.link{
+  text-decoration:none;
+
+}

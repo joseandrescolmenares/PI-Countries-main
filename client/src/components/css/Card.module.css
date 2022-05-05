@@ -1,13 +1,17 @@
 .card{
     display: flex;
-   width: 100px;
+   width: 350px;
    height:230px;
-   margin: 20px;
-   
+   margin: 15px;
+   border: 1px solid rgb(255, 255, 255);
 }
 
 .flag{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 170px;
+    margin: 20px;
 }
 
+.bla{
+    color: rgb(255, 255, 255)
+}

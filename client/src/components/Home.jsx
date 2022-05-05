@@ -37,7 +37,8 @@ export default function Home() {
      
         <div className={style.nav}>
         <Search />
-          <div>
+          <div> 
+            <label>Continet: </label>
             <select onChange={(e) => handleOnchange(e)}>
               <option value="All">All</option>
               <option value="Africa">Africa</option>
@@ -47,8 +48,10 @@ export default function Home() {
               <option value="North America">North America</option>
               <option value="South America">South Americ</option>
             </select>
+              
           </div>
           <div>
+            <label>Ordenado: </label>
             <select value={orden} onChange={(e) => handleFilter(e)}>
               <option value="ascPO">Ascendent Population</option>
               <option value="ascPO">Descendent Population</option>
@@ -57,6 +60,7 @@ export default function Home() {
             </select>
           </div>
           <div>
+            <label>Activity: </label>
             <select onChange={(e) => handleActivity(e)}>
               <option value="All">All</option>
               <option value="Horse Ride">Horse Ride</option>
@@ -73,7 +77,7 @@ export default function Home() {
           {Allcountrys &&
             Allcountrys.map((el) => {
               return (
-                <Link to={`/home/${el.id}`}>
+                <Link className={style.link} to={`/home/${el.id}`}>
                   <Card
                     key={el.id}
                     name={el.name}
