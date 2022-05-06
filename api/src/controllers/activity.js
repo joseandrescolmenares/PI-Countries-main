@@ -1,12 +1,16 @@
 const { Countrys, Activitys } = require("../db");
 
 const PostActivity = async (name, difficulty, duration, season, countrys) => {
+  if(!name || !difficulty || !duration || !season || !countrys){
+    return 
+}
   const activitis = await Activitys.create({
     name,
     difficulty,
     duration,
     season,
   });
+
   try {
     countrys.map(async (country) => {
       let search = await Countrys.findAll({ where: { id: country } });

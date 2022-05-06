@@ -7,15 +7,17 @@ export default function Search() {
   const [name, setName] = useState("");
   console.log(name);
   const handleSearch = (e) => {
+    e.preventDefault()
     setName(e.target.value);
   };
 
   const handleOnclick = (e) => {
+    e.preventDefault();
     dispatch(getName(name));
   };
 
   return (
-    <div>
+    <form>
       <input
         type="search"
         placeholder="Search"
@@ -23,6 +25,6 @@ export default function Search() {
         onChange={(e) => handleSearch(e)}
       />
       <button onClick={(e) => handleOnclick(e)}>Buscar</button>
-    </div>
+    </form>
   );
 }

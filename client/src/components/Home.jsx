@@ -70,6 +70,7 @@ export default function Home() {
               <option value="Hot Air Ballon Ride">Hot Air Ballon Ride</option>
             </select>
           </div>
+         <Link to='/home/create'><button>Crear Activity</button></Link>
         </div>
         <img className={style.mundo} src={logo} alt="mundo" />
 

@@ -8,13 +8,11 @@ export function getData() {
       return dispatch({
         type: "GET_INFO",
         payload: result.data,
-      })
-     
+      });
     } catch (error) {
       console.log(error);
     }
   };
-  
 }
 
 export function getName(name) {
@@ -46,30 +44,35 @@ export function getId(id) {
   };
 }
 
-
-export function filterCont(payload){
-  return{
-    type: 'FILTER_CONT',
-    payload: payload
-  }
-
+export function filterCont(payload) {
+  return {
+    type: "FILTER_CONT",
+    payload: payload,
+  };
 }
 
+export function filter(payload) {
+  return {
+    type: "FILTER",
+    payload: payload,
+  };
+}
 
-export function filter(payload){
-    return{
-        type: 'FILTER',
-        payload: payload
+export function activity(payload) {
+  console.log(payload);
+  return {
+    type: "ACTIVITY",
+    payload: payload,
+  };
+}
+
+export function Post(payload) {
+  return async function (dispatch) {
+    try {
+      let pais = await axios.post("http://localhost:3001/activity", payload);
+      return pais;
+    } catch (error) {
+      console.log(error);
     }
+  };
 }
-
-export function activity(payload){
-  console.log(payload)
-  return{
-    type: 'ACTIVITY',
-    payload: payload
-  }
-}
-
-
-

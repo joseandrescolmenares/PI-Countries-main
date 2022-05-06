@@ -26,6 +26,10 @@ function rootReducer(state = stateInitial, action) {
         ...state,
         countryCopia: action.payload,
       };
+    case "POST":
+      return {
+        ...state,
+      };
 
     case "FILTER_CONT":
       const estado = state.filter;
@@ -48,7 +52,7 @@ function rootReducer(state = stateInitial, action) {
       return {
         ...state,
         allCountrys:
-          action.payload === "All" ? state.countryCopia: filterActivity,
+          action.payload === "All" ? state.countryCopia : filterActivity,
       };
 
     case "FILTER":

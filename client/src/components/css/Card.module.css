@@ -18,11 +18,15 @@
     display: flex;
     justify-content:center;
     align-items: center;
-    width: 180px;
-    height: 90px;
-    border: 1px solid #2a2a2b;
+    width: 250px;
+    height: 139px;
+    border-radius: 20px 20px  10px 6px;
+    border: 1px solid #f7f7ff;
 }
 
 .bla{
     color: rgb(7, 7, 7)
+}
+.text{
+  text-align: center;
 }
