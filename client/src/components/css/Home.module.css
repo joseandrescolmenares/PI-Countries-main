@@ -14,14 +14,17 @@ left: 0;
 .centrar{
   
  position: relative;
- bottom: 600px;
+ bottom: 650px;
  right: 50px;
  display: grid;
 justify-content: end;
  align-items: center;
- grid-template-columns: 350px 350px 350px;
+ grid-template-columns: 300px 300px 300px;
 grid-template-rows: 200px 200px 200px;
- gap: 50px;
+gap: 70px;
+
+
+
 
 }
 .mundo{
@@ -45,7 +48,7 @@ grid-template-rows: 200px 200px 200px;
 
 .nav{
   height:80px;
-  background-color: aliceblue;
+  background-color: rgb(156, 198, 235);
 display: flex;
 justify-content:space-around;
 align-items: center;

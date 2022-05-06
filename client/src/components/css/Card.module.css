@@ -1,17 +1,28 @@
 .card{
     display: flex;
-   width: 350px;
-   height:230px;
-   margin: 15px;
+    justify-content:center;
+    align-items: center;
+    border-radius: 20px;
+   width: 250px;
+   height:240px;
    border: 1px solid rgb(255, 255, 255);
+   background-color:rgb(156, 198, 235);
 }
 
+.card:hover {
+ border: #006fff 0.2em solid;
+}
+
+
 .flag{
-    width: 150px;
-    height: 170px;
-    margin: 20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 180px;
+    height: 90px;
+    border: 1px solid #2a2a2b;
 }
 
 .bla{
-    color: rgb(255, 255, 255)
+    color: rgb(7, 7, 7)
 }
