@@ -11,13 +11,6 @@ const Landing = () => {
           <button className={style.comenzar}>comenzar</button>
         </Link>
       </div>
-      {/* <div className={style.cloud}>
-        <div className={style.light}></div>
-        <img
-          className={style.planeImg}
-          src="https://images.vexels.com/media/users/3/145795/isolated/preview/05cd33059a006bf49006097af4ccba98-plane-in-flight-by-vexels.png"
-        />
-      </div> */}
     </div>
   );
 };

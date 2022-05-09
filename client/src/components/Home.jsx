@@ -13,6 +13,7 @@ export default function Home() {
   const [limit, setLimit] = useState(0);
   const [offset, setOffset] = useState(9);
   const Allcountrys = useSelector((state) => state.allCountrys);
+  const loading = useSelector((state) => state.loanding);
   const dispatch = useDispatch();
   
   
@@ -33,6 +34,7 @@ export default function Home() {
   };
 
   return (
+    <div>{loading? <div>cargando</div> : 
     <div className={style.background}>
       <div>
      
@@ -93,6 +95,9 @@ export default function Home() {
             })}
         </div>
       </div>
+    
     </div>
+  }</div>
   );
+
 }

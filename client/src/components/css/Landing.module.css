@@ -80,40 +80,4 @@ min-height: 100vh;
    }
 
 
-   /* .cloud {
-    position: absolute;
-    top: 0;
-    right: -500px;
-    opacity: 0.8;
-    animation: cloud 10s linear 1s infinite reverse;
-    z-index: 99;
-  }
-  
-  @keyframes light {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes cloud {
-    from {
-      right: -500px;
-    }
-    to {
-      right: 102%;
-    }
-  }
-  
-  
-  
-  
-  @keyframes animate {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  } */
+   

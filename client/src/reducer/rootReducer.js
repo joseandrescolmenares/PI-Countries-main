@@ -2,6 +2,7 @@ const stateInitial = {
   allCountrys: [],
   countryCopia: [],
   filter: [],
+  loanding: false,
 };
 
 console.log(stateInitial.allCountrys);
@@ -14,6 +15,8 @@ function rootReducer(state = stateInitial, action) {
         filter: action.payload,
         allCountrys: action.payload,
         countryCopia: action.payload,
+        loanding: false
+        
       };
     case "GET_NAME":
       return {
@@ -54,6 +57,13 @@ function rootReducer(state = stateInitial, action) {
         allCountrys:
           action.payload === "All" ? state.countryCopia : filterActivity,
       };
+
+      case 'LOANDING':
+        return{
+          ...state,
+          loanding: true
+        }
+
 
     case "FILTER":
       let aux =
