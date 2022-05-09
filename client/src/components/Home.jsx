@@ -14,7 +14,8 @@ export default function Home() {
   const [offset, setOffset] = useState(9);
   const Allcountrys = useSelector((state) => state.allCountrys);
   const dispatch = useDispatch();
-
+  
+  
   useEffect(() => {
     dispatch(getData());
   }, [dispatch]);
@@ -75,8 +76,10 @@ export default function Home() {
         <img className={style.mundo} src={logo} alt="mundo" />
 
         <div className={style.centrar}>
-          {Allcountrys &&
-            Allcountrys.map((el) => {
+          
+          {
+            Allcountrys &&
+              Allcountrys.map((el) => {
               return (
                 <Link className={style.link} to={`/home/${el.id}`}>
                   <Card

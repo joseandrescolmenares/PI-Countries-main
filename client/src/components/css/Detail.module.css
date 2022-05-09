@@ -1,0 +1,42 @@
+.principal{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:50%;
+    text-align: center;
+    border: 1px solid #333; 
+    box-shadow: 2px 20px 10px 2px #333;
+}
+
+
+
+.pais{
+    width: 500px;
+    height:400px;
+    margin-right: 90px;
+}
+
+.background{
+background-image: url('../img/estoyyyyy.jpg');
+background-position:center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+min-height: 100%;
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+
+}
+.borde{
+    border: 1px solid #333;
+}
+
+.regresa{
+    position: relative;
+    right: -120px;
+    top: 20px;
+}

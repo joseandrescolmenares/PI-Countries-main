@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getData, Post } from "../actions/actions";
+import Validate from "./Validate";
 
 export default function Create() {
   const navegate = useNavigate();
   const dispatch = useDispatch();
   const Ollcountrys = useSelector((state) => state.allCountrys);
+  const [error, setError] = useState({});
   const [input, setInput] = useState({
     name: "",
     difficulty: "",
@@ -25,6 +27,13 @@ export default function Create() {
       ...input,
       [e.target.name]: e.target.value,
     });
+
+    setError(
+      Validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
 
   const handleSelect = (e) => {
@@ -59,6 +68,7 @@ export default function Create() {
             name="name"
             onChange={(e) => handleOnchange(e)}
           />
+          {error.name && <p className="error">{error.name}</p>}
         </div>
         <div>
           <label>Difficulty:</label>
@@ -73,6 +83,7 @@ export default function Create() {
             <option value="4">4(Hard)</option>
             <option value="5">5(Extreme)</option>
           </select>
+          {error.difficulty && <p className="error">{error.difficulty}</p>}
         </div>
         <div>
           <label>Duration:</label>
@@ -87,6 +98,7 @@ export default function Create() {
             <option value="4hr">4 Hr</option>
             <option value="5hr">5 Hr</option>
           </select>
+          {error.duration && <p className="error">{error.duration}</p>}
         </div>
         <div>
           <label>Season:</label>
@@ -100,6 +112,7 @@ export default function Create() {
             <option value="winter">winter</option>
             <option value="spring">spring</option>
           </select>
+          {error.season && <p className="error">{error.season}</p>}
         </div>
         <div>
           <label>Countrys:</label>
