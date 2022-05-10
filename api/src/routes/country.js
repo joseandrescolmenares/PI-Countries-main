@@ -5,7 +5,8 @@ const {dbInfo, countryId,} = require('../controllers/country')
 
 router.get('/', async(req, res) =>{
     const {name} = req.query;
-    res.status(200).send(await dbInfo(name))
+    const {offset, limit} = req.query;
+    res.status(200).send(await dbInfo(name, offset, limit));
 })
 
 

@@ -10,16 +10,28 @@ import logo from "./img/modii.jpg";
 
 export default function Home() {
   const [orden, setOrden] = useState("");
-  const [limit, setLimit] = useState(0);
-  const [offset, setOffset] = useState(9);
+  const [limit, setLimit] = useState(9);
+  const [offset, setOffset] = useState(0);
   const Allcountrys = useSelector((state) => state.allCountrys);
   const loading = useSelector((state) => state.loanding);
   const dispatch = useDispatch();
   
+  const handlePrev = () =>{
+    setOffset(offset - 9)
+    setLimit(limit - 9)
+  }
+
+  const handleNext = () =>{
+      setOffset(offset + 9)
+    setLimit(limit + 9)
+  }
   
+
   useEffect(() => {
-    dispatch(getData());
-  }, [dispatch]);
+    dispatch(getData(offset, limit));
+  }, [dispatch, offset, limit]);
+
+  
 
   const handleOnchange = (e) => {
     dispatch(filterCont(e.target.value));
@@ -33,11 +45,13 @@ export default function Home() {
     dispatch(activity(e.target.value));
   };
 
+  
+
   return (
     <div>{loading? <div>cargando</div> : 
     <div className={style.background}>
       <div>
-     
+      
         <div className={style.nav}>
         <Search />
           <div> 
@@ -76,8 +90,10 @@ export default function Home() {
          <Link to='/home/create'><button>Crear Activity</button></Link>
         </div>
         <img className={style.mundo} src={logo} alt="mundo" />
-
+       
         <div className={style.centrar}>
+        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>
+         <button  disabled={offset<= 0} onClick={handlePrev}>atras</button>
           
           {
             Allcountrys &&

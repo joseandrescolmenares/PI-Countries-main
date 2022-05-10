@@ -1,10 +1,11 @@
 import axios from "axios";
 
-export function getData() {
+export function getData(offset, limit) {
   return async function (dispatch) {
+    console.log(offset, limit)
     dispatch(loanding())
     try {
-      let result = await axios.get("http://localhost:3001/countrys");
+      let result = offset !== undefined && limit !== undefined ? await axios.get(`http://localhost:3001/countrys?offset=${offset}&limit=${limit}`): await axios.get('http://localhost:3001/countrys')
       console.log(result.data);
       return dispatch({
         type: "GET_INFO",
