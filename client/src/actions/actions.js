@@ -5,7 +5,7 @@ export function getData(offset, limit) {
     console.log(offset, limit)
     dispatch(loanding())
     try {
-      let result = offset !== undefined && limit !== undefined ? await axios.get(`http://localhost:3001/countrys?offset=${offset}&limit=${limit}`): await axios.get('http://localhost:3001/countrys')
+      let result =   await axios.get('http://localhost:3001/countrys')
       console.log(result.data);
       return dispatch({
         type: "GET_INFO",
@@ -83,4 +83,12 @@ export function loanding(){
   return{
     type: 'LOANDING',
   }
+}
+
+export function popular(payload) {
+  console.log(payload);
+  return {
+    type: "POPU",
+    payload: payload,
+  };
 }

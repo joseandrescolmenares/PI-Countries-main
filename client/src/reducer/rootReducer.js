@@ -15,8 +15,7 @@ function rootReducer(state = stateInitial, action) {
         filter: action.payload,
         allCountrys: action.payload,
         countryCopia: action.payload,
-        loanding: false
-        
+        loanding: false,
       };
     case "GET_NAME":
       return {
@@ -35,14 +34,14 @@ function rootReducer(state = stateInitial, action) {
       };
 
     case "FILTER_CONT":
-      const estado = state.filter;
+      const estado = state.countryCopia;
       const nuevoestado = estado.filter((el) =>
         el.continent.includes(action.payload)
       );
 
       return {
         ...state,
-        allCountrys:
+       allCountrys:
           action.payload === "All" ? state.countryCopia : nuevoestado,
       };
 
@@ -58,30 +57,54 @@ function rootReducer(state = stateInitial, action) {
           action.payload === "All" ? state.countryCopia : filterActivity,
       };
 
-      case 'LOANDING':
-        return{
-          ...state,
-          loanding: true
-        }
-
+    case "LOANDING":
+      return {
+        ...state,
+        loanding: true,
+      };
 
     case "FILTER":
       let aux =
         action.payload === "asc"
           ? state.countryCopia.sort((a, b) => {
-              if (a.name > b.name) return 1;
-              if (b.name > a.name) return -1;
+              if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+              if (b.name.toLowerCase() > a.name.toLowerCase()) return -1;
               return 0;
             })
           : state.countryCopia.sort((a, b) => {
-              if (a.name > b.name) return -1;
-              if (b.name > a.name) return 1;
+              if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+              if (b.name.toLowerCase() > a.name.toLowerCase()) return 1;
               return 0;
             });
 
       return {
         ...state,
         allCountrys: aux,
+      };
+    case "POPU":
+      let orden =
+        action.payload === "mayor"
+          ? state.countryCopia.sort((a, b) => {
+              if (a.population > b.population) {
+                return 1;
+              }
+              if (b.population > a.population) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.countryCopia.sort((a, b) => {
+              if (a.population > b.population) {
+                return -1;
+              }
+              if (b.population > a.population) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        allCountrys: orden,
       };
 
     default:

@@ -27,18 +27,14 @@ const infoApi = async() =>{
 }
 
 
-const dbInfo = async (name, offset, limit) =>{
-  console.log(offset, limit)
+const dbInfo = async (name) =>{
   try{
     if(!name){ 
       
   const paises = await Countrys.findAll({
     include:[{model: Activitys}]
   }) 
-  if(offset && limit){ 
-  const paginadoPais = paises.slice(offset, limit) 
-return paginadoPais
-  }return 'no anda'
+  return paises
 }
 else{
   const pais = await dbInfo()
@@ -56,6 +52,7 @@ const countryId = async(id) =>{
  const idPaises = await dbInfo()
  const countryID = idPaises.filter(el => el.id == id);
  if(!countryID.length) {
+   console.log(countryID)
    return 'no se encontro ningun pais'
  }
  return countryID

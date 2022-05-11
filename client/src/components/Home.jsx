@@ -1,14 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData, filterCont, filter, activity } from "../actions/actions";
+import { getData, filterCont, filter, activity, popular } from "../actions/actions";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import style from "./css/Home.module.css";
 import logo from "./img/modii.jpg";
 
+
 export default function Home() {
+  const [popu, setPopu] = useState("")
   const [orden, setOrden] = useState("");
   const [limit, setLimit] = useState(9);
   const [offset, setOffset] = useState(0);
@@ -35,6 +37,7 @@ export default function Home() {
 
   const handleOnchange = (e) => {
     dispatch(filterCont(e.target.value));
+    
   };
   const handleFilter = (e) => {
     dispatch(filter(orden));
@@ -45,6 +48,10 @@ export default function Home() {
     dispatch(activity(e.target.value));
   };
 
+  const handlePopup = (e) =>{
+    dispatch(popular(popu))
+    setPopu(e.target.value);
+  }
   
 
   return (
@@ -70,10 +77,15 @@ export default function Home() {
           <div>
             <label>Ordenado: </label>
             <select value={orden} onChange={(e) => handleFilter(e)}>
-              <option value="ascPO">Ascendent Population</option>
-              <option value="ascPO">Descendent Population</option>
               <option value="asc">Z-A</option>
               <option value="des">A-Z</option>
+            </select>
+          </div>
+          <div>
+            <label>Popular</label>
+            <select onChange={handlePopup}>
+            <option value="mayor">mayor Population</option>
+            <option value="menor">menor Population</option>
             </select>
           </div>
           <div>
@@ -92,12 +104,12 @@ export default function Home() {
         <img className={style.mundo} src={logo} alt="mundo" />
        
         <div className={style.centrar}>
-        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>
+        <button disabled={limit >= 251} onClick={handleNext}>siguiente</button>
          <button  disabled={offset<= 0} onClick={handlePrev}>atras</button>
           
           {
             Allcountrys &&
-              Allcountrys.map((el) => {
+              Allcountrys.slice(offset, limit).map((el) => {
               return (
                 <Link className={style.link} to={`/home/${el.id}`}>
                   <Card
