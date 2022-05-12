@@ -1,0 +1,48 @@
+.principal{
+background-image: url('../img/GLOBO.jpg');
+background-position:center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+min-height: 100%;
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+justify-content:center;
+align-items: center;
+}
+.form{
+    background-color:#67adbd;;
+    padding: 30px;
+    width: 400px;
+    height: 500px;
+    
+    display: grid;
+    justify-content:center;
+    box-shadow:#80afc3 1px 0px 8px 0px;
+}
+
+.buton{
+    margin-top: 50px;
+    border-radius: 20px ;
+    border: none;
+    width:150px;
+}
+
+.volver{
+    position: relative;
+    bottom: 300px; 
+    left: 70px;
+}
+.input{
+    width: 100px;
+    text-align: center;
+}
+
+.center{
+    display: flex;
+    justify-content:center;
+    
+}

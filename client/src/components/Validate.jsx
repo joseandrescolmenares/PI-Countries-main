@@ -1,5 +1,6 @@
 export default function Validate(input) {
   const error = {};
+  console.error(input.country)
   if (!input.name) {
     error.name = "falta el nombre";
   }
@@ -11,6 +12,9 @@ export default function Validate(input) {
   }
   if(!input.season){
       error.season = 'falta una season';
+  }
+  if(!input.countrys.length){
+    error.countrys = 'falta una country';
   }
   return error
 }

@@ -1,0 +1,14 @@
+.Search{
+    width: 250px;
+    border-radius: 21px;
+    margin: 6px;
+    height: 27px;
+    border: none;
+}
+
+.buscar{
+    width: 80px;
+    height: 27px;
+    border: none;
+    border-radius: 10px;
+}

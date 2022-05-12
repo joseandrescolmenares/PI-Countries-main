@@ -18,9 +18,10 @@ function rootReducer(state = stateInitial, action) {
         loanding: false,
       };
     case "GET_NAME":
+      const name = action.payload
       return {
         ...state,
-        allCountrys: action.payload,
+        allCountrys: name
       };
 
     case "GET_ID":

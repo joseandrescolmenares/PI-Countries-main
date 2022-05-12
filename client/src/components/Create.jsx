@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getData, Post } from "../actions/actions";
 import Validate from "./Validate";
+import style from "./css/Create.module.css"
+import {Link} from "react-router-dom";
 
 export default function Create() {
   const navegate = useNavigate();
@@ -58,8 +60,10 @@ export default function Create() {
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={style.principal}>
+     <Link to="/home"><button className={style.volver}>Volver</button></Link>
+      <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
+        <h1>Crea tu Actividad</h1>
         <div>
           <label>Nombre:</label>
           <input
@@ -73,6 +77,7 @@ export default function Create() {
         <div>
           <label>Difficulty:</label>
           <select
+           className={style.input}
             name="difficulty"
             value={input.difficulty}
             onChange={(e) => handleOnchange(e)}
@@ -88,6 +93,7 @@ export default function Create() {
         <div>
           <label>Duration:</label>
           <select
+             className={style.input}
             name="duration"
             value={input.duration}
             onChange={(e) => handleOnchange(e)}
@@ -101,8 +107,9 @@ export default function Create() {
           {error.duration && <p className="error">{error.duration}</p>}
         </div>
         <div>
-          <label>Season:</label>
+          <label>Season: </label>
           <select
+             className={style.input}
             name="season"
             value={input.season}
             onChange={(e) => handleOnchange(e)}
@@ -116,13 +123,16 @@ export default function Create() {
         </div>
         <div>
           <label>Countrys:</label>
-          <select onChange={(e) => handleSelect(e)}>
+          <select className={style.input} onChange={(e) => handleSelect(e)}>
+        
             {Ollcountrys &&
               Ollcountrys.map((el) => <option value={el.id}>{el.name}</option>)}
           </select>
-          <div>
-            {" "}
-            <button type="submit">Crear Activity</button>
+          {error.countrys && <p className="error">{error.countrys}</p>}
+          
+          <div className={style.center}>
+           
+            <button className={style.buton}type="submit">Crear Activity</button>
           </div>
         </div>
       </form>
