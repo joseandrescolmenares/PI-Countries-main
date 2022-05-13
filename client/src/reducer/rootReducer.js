@@ -3,9 +3,10 @@ const stateInitial = {
   countryCopia: [],
   filter: [],
   loanding: false,
+  Activitys: [],
 };
 
-console.log(stateInitial.allCountrys);
+
 
 function rootReducer(state = stateInitial, action) {
   switch (action.type) {
@@ -57,6 +58,7 @@ function rootReducer(state = stateInitial, action) {
         allCountrys:
           action.payload === "All" ? state.countryCopia : filterActivity,
       };
+     
 
     case "LOANDING":
       return {

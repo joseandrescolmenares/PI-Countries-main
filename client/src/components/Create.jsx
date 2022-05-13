@@ -4,14 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getData, Post } from "../actions/actions";
 import Validate from "./Validate";
-import style from "./css/Create.module.css"
-import {Link} from "react-router-dom";
+import style from "./css/Create.module.css";
+import { Link } from "react-router-dom";
 
 export default function Create() {
   const navegate = useNavigate();
   const dispatch = useDispatch();
   const Ollcountrys = useSelector((state) => state.allCountrys);
   const [error, setError] = useState({});
+  const [disabled, setDisabled] = useState(true);
+
   const [input, setInput] = useState({
     name: "",
     difficulty: "",
@@ -58,10 +60,24 @@ export default function Create() {
     });
     navegate("/home");
   };
+  const validateInput = (form) => {
+    return (
+      form.name &&
+      form.difficulty &&
+      form.duration &&
+      form.season &&
+      form.countrys.length
+    );
+  };
+  useEffect(() => {
+   setDisabled(!validateInput(input))
+  }, [input]);
 
   return (
     <div className={style.principal}>
-     <Link to="/home"><button className={style.volver}>Volver</button></Link>
+      <Link to="/home">
+        <button className={style.volver}>Volver</button>
+      </Link>
       <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
         <h1>Crea tu Actividad</h1>
         <div>
@@ -77,7 +93,7 @@ export default function Create() {
         <div>
           <label>Difficulty:</label>
           <select
-           className={style.input}
+            className={style.input}
             name="difficulty"
             value={input.difficulty}
             onChange={(e) => handleOnchange(e)}
@@ -93,7 +109,7 @@ export default function Create() {
         <div>
           <label>Duration:</label>
           <select
-             className={style.input}
+            className={style.input}
             name="duration"
             value={input.duration}
             onChange={(e) => handleOnchange(e)}
@@ -109,7 +125,7 @@ export default function Create() {
         <div>
           <label>Season: </label>
           <select
-             className={style.input}
+            className={style.input}
             name="season"
             value={input.season}
             onChange={(e) => handleOnchange(e)}
@@ -124,15 +140,16 @@ export default function Create() {
         <div>
           <label>Countrys:</label>
           <select className={style.input} onChange={(e) => handleSelect(e)}>
-        
             {Ollcountrys &&
               Ollcountrys.map((el) => <option value={el.id}>{el.name}</option>)}
           </select>
+
           {error.countrys && <p className="error">{error.countrys}</p>}
-          
+
           <div className={style.center}>
-           
-            <button className={style.buton}type="submit">Crear Activity</button>
+            <button disabled={disabled} className={style.buton} type="submit">
+              Crear Activity
+            </button>
           </div>
         </div>
       </form>

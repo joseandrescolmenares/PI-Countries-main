@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import Search from "./Search";
 import style from "./css/Home.module.css";
 import logo from "./img/modii.jpg";
-import icono from "./img/nooooooooooooooo.png"
+
 
 export default function Home() {
   const [popu, setPopu] = useState("");
@@ -35,8 +35,13 @@ export default function Home() {
   };
 
   useEffect(() => {
-    dispatch(getData(offset, limit));
-  }, [dispatch, offset, limit]);
+    dispatch(getData());
+  }, [dispatch]);
+
+  useEffect(() => {
+      setOffset(0)
+    setLimit(9)
+  },[Allcountrys])
 
   const handleOnchange = (e) => {
     dispatch(filterCont(e.target.value));
@@ -106,9 +111,7 @@ export default function Home() {
                 </select>
               </div>
               <Link to="/home/create">
-               
-                <img className={style.activity} src={icono}/>
-                <p className={style.p}>Crear Actividad</p>
+               <button className={style.crear}>Crear Actividad</button>
               </Link>
              
 
@@ -118,7 +121,7 @@ export default function Home() {
               <button className={style.atras} disabled={offset <= 0} onClick={handlePrev}>
               ◀
               </button>
-              <button disabled={limit >= 251} onClick={handleNext}>
+              <button disabled={limit >= (Allcountrys.length -1)} onClick={handleNext}>
               ▶ 
               </button>
             </div>
@@ -136,6 +139,7 @@ export default function Home() {
                         flag={el.flag}
                         continent={el.continent}
                       />
+                     
                     </Link>
                   );
                 })}

@@ -1,7 +1,6 @@
 export default function Validate(input) {
   const error = {};
-  console.error(input.country)
-  if (!input.name) {
+  if(!input.name) {
     error.name = "falta el nombre";
   }
   if(!input.difficulty){

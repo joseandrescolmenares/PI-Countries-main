@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export function getData(offset, limit) {
+export function getData() {
   return async function (dispatch) {
-    console.log(offset, limit)
     dispatch(loanding())
     try {
       let result =   await axios.get('http://localhost:3001/countrys')
@@ -18,17 +17,20 @@ export function getData(offset, limit) {
 }
 
 export function getName(name) {
+
   return async function (dispatch) {
     try {
       let data = await axios.get(`http://localhost:3001/countrys?name=${name}`);
       return dispatch({
         type: "GET_NAME",
         payload: data.data,
+    
       });
     } catch (error) {
       console.log(error);
     }
   };
+
 }
 
 export function getId(id) {

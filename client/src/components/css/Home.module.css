@@ -79,10 +79,8 @@ align-items: center;
   border-radius: 20px;
   height: 27px;
 }
-.activity{
-  width: 100px;
-  height: 60px;
-}
-.p{
-  margin: 0px;
+
+.crear{
+  width: 86px;
+  border-radius: 20px;
 }

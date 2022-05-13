@@ -7,6 +7,7 @@ export default function Search() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   console.log(name);
+  
   const handleSearch = (e) => {
     e.preventDefault()
     setName(e.target.value);
